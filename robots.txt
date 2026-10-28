@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iwannatrip02-sys.github.io/andres-alzate/sitemap.xml
