@@ -521,7 +521,42 @@ html:not(.js) .lt-lista > *:not(summary), .lt-lista[open] > * { display: revert;
 .clip__img { opacity: .9; }
 *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
 }
-@media (forced-colors: active) { .rotulo::before, .pendiente__punto, .cabezal { forced-color-adjust: none; } }</style>
+@media (forced-colors: active) { .rotulo::before, .pendiente__punto, .cabezal { forced-color-adjust: none; } }
+.indice { padding-block: clamp(56px, 7vw, 120px); border-top: 1px solid var(--linea-p); row-gap: 28px; }
+.indice__cab { grid-column: 1 / -1; display: grid; gap: 14px; }
+.indice__t { font: 400 clamp(26px, 1.6vw + 14px, 38px)/1.12 var(--serif); margin: 0; max-width: 18em; }
+.indice__paleta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 6px 0 0; padding: 0; list-style: none; font: 500 .75rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--gris-n); }
+.indice__paleta li { display: inline-flex; align-items: center; gap: 8px; }
+.indice__muestra { width: 22px; height: 12px; background: var(--c); display: inline-block; }
+.indice__lista { grid-column: 1 / -1; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--linea-p); }
+.indice__lista a { display: grid; grid-template-columns: 7.5em 1fr; gap: 4px 18px; padding: 16px 0 15px; border-bottom: 1px solid var(--linea-p); color: inherit; text-decoration: none; }
+.indice__anio { grid-row: 1 / span 3; font-size: .78rem; letter-spacing: .06em; color: var(--gris-n); padding-top: 4px; }
+.indice__nombre { font: 500 clamp(15px, .5vw + 13px, 19px)/1.35 var(--mono); letter-spacing: .28em; text-transform: uppercase; }
+.indice__nombre mark { background: var(--c); color: #0b0b0c; padding: 1px .35em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.indice__tipo { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gris-n); }
+.indice__rol { color: var(--gris-n); font-size: .92rem; max-width: 42em; }
+.indice__lista a:hover .indice__nombre mark, .indice__lista a:focus-visible .indice__nombre mark { background: var(--porcelana); }
+@media (min-width: 900px) { .indice__cab { grid-column: 1 / span 5; align-self: start; position: sticky; top: calc(var(--barra) + 24px); } .indice__lista { grid-column: 6 / -1; } }
+@media (max-width: 560px) { .indice__lista a { grid-template-columns: 1fr; } .indice__anio { grid-row: auto; padding-top: 0; } .indice__nombre { letter-spacing: .18em; } }
+.labg { border-top: 1px solid var(--linea-p); padding-top: clamp(36px, 4vw, 64px); scroll-margin-top: calc(var(--barra) + 12px); }
+.labg__cab { align-items: end; row-gap: 10px; margin-bottom: clamp(24px, 3vw, 44px); }
+.labg__t { grid-column: 1 / -1; font: 400 clamp(30px, 2.2vw + 14px, 52px)/1.04 var(--serif); margin: 0; }
+.labg__n { font-size: .8rem; color: var(--gris-n); vertical-align: super; letter-spacing: .08em; }
+.labg__pide { grid-column: 1 / -1; margin: 0; font-size: .78rem; letter-spacing: .06em; color: var(--gris-n); }
+.labg__pide a { color: var(--porcelana); text-decoration: underline; text-underline-offset: 3px; }
+.labg__l { text-transform: uppercase; letter-spacing: .12em; margin-right: .4em; }
+@media (min-width: 900px) { .labg__t { grid-column: 1 / span 7; } .labg__pide { grid-column: 8 / -1; text-align: right; } }
+.labg__saltos ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 22px 0 0; }
+.labg__saltos a { display: inline-block; padding: 8px 14px; border: 1px solid rgba(244, 240, 232, .3); font: 500 .78rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: inherit; text-decoration: none; }
+.labg__saltos a:hover, .labg__saltos a:focus-visible { background: var(--porcelana); color: var(--noche); }
+@media (min-width: 900px) { .lab--uno .labc { grid-column: 1 / span 8; } }
+.formatos { padding-block: clamp(56px, 7vw, 120px) 0; }
+.formatos__cab { max-width: 46em; }
+.formatos__sub { margin-top: 10px; }
+@media (min-width: 900px) { .lab--tres .labc:nth-child(n) { grid-column: auto / span 4; } }
+.lab--tres .labc__t { font-size: clamp(24px, 1.2vw + 14px, 34px); }
+.lab--tres .labc__t a { color: inherit; text-decoration: none; }
+.lab--tres .labc__n { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }</style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="p-trabajo">
@@ -529,7 +564,7 @@ html:not(.js) .lt-lista > *:not(summary), .lt-lista[open] > * { display: revert;
 <header class="barra" data-barra data-solida>
 <div class="barra__fila">
 <a class="barra__nombre" href="../../">Andrés Alzate</a>
-<nav class="barra__nav" aria-label="Principal"><ul><li><a href="../../trabajo/" aria-current="page">Trabajo</a></li><li><a href="../../servicios/">Servicios</a></li><li><a href="../../sobre-mi/">Sobre mí</a></li><li><a href="../../laboratorio/">Laboratorio</a></li></ul></nav>
+<nav class="barra__nav" aria-label="Principal"><ul><li><a href="../../trabajo/" aria-current="page">Trabajo</a></li><li><a href="../../laboratorio/">Formatos</a></li><li><a href="../../servicios/">Servicios</a></li><li><a href="../../sobre-mi/">Sobre mí</a></li></ul></nav>
 <a class="barra__idioma" href="../../en/work/aberden/" hreflang="en" lang="en" title="English">EN</a>
 <a class="boton boton--cobalto boton--chico barra__wa" href="https://wa.me/573194185762?text=Hola%2C%20Andr%C3%A9s.%20Vengo%20de%20tu%20web." data-medir="wa-barra">WhatsApp</a>
 </div>
