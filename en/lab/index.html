@@ -556,7 +556,9 @@ html:not(.js) .lt-lista > *:not(summary), .lt-lista[open] > * { display: revert;
 @media (min-width: 900px) { .lab--tres .labc:nth-child(n) { grid-column: auto / span 4; } }
 .lab--tres .labc__t { font-size: clamp(24px, 1.2vw + 14px, 34px); }
 .lab--tres .labc__t a { color: inherit; text-decoration: none; }
-.lab--tres .labc__n { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }</style>
+.lab--tres .labc__n { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.portada__oficio:has(+ .portada__oferta) { margin-bottom: 10px; }
+.portada__oferta { font-size: clamp(15px, .55vw + 11px, 19px); line-height: 1.45; margin: 0 0 clamp(18px, 3vh, 32px); max-width: 40em; opacity: .86; }</style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="p-lab">
