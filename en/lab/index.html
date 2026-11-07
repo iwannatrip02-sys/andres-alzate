@@ -7,13 +7,13 @@
 <meta name="description" content="Formats for channels and brands, delivered remotely: data explainers, history and archive, editorial motion, thumbnails, identity and web.">
 <link rel="canonical" href="https://iwannatrip02-sys.github.io/andres-alzate/en/lab/">
 <link rel="alternate" hreflang="es" href="https://iwannatrip02-sys.github.io/andres-alzate/laboratorio/"><link rel="alternate" hreflang="en" href="https://iwannatrip02-sys.github.io/andres-alzate/en/lab/"><link rel="alternate" hreflang="x-default" href="https://iwannatrip02-sys.github.io/andres-alzate/laboratorio/">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Andrés Alzate"><meta property="og:locale" content="en_US">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Nauta · Andrés Alzate"><meta property="og:locale" content="en_US">
 <meta property="og:title" content="Formats · Andrés Alzate"><meta property="og:description" content="Formats for channels and brands, delivered remotely: data explainers, history and archive, editorial motion, thumbnails, identity and web."><meta property="og:url" content="https://iwannatrip02-sys.github.io/andres-alzate/en/lab/">
 <meta property="og:image" content="https://iwannatrip02-sys.github.io/andres-alzate/media/og/laboratorio.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B0B0C">
+<meta name="theme-color" content="#F3F0E8">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-<link rel="preload" href="../../assets/fuentes/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fuentes/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fuentes/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <style>@font-face { font-family: 'Instrument Serif'; src: url(../../assets/fuentes/instrument-serif.woff2) format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Instrument Serif'; src: url(../../assets/fuentes/instrument-serif-italic.woff2) format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
@@ -569,14 +569,91 @@ html:not(.js) .lt-lista > *:not(summary), .lt-lista[open] > * { display: revert;
 @media (min-width: 900px) {
 .muestras__lista { grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--g); }
 .muestras__lista a { height: 100%; align-content: start; padding: 18px 0; }
-}</style>
+}
+@font-face { font-family: Archivo; src: url(../../assets/fuentes/archivo-wdth.woff2) format('woff2'); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+:root {
+--fondo: #F3F0E8; --fondo-2: #E9E4D8; --texto: #0B0B0C;
+--gris-n: #55534F; --linea-n: rgba(11, 11, 12, .16);
+--display: Archivo, 'Instrument Sans', 'Sans respaldo', Arial, sans-serif;
+color-scheme: light;
+}
+body { background: var(--fondo); color: var(--texto); }
+::selection { background: var(--cobalto); color: var(--porcelana); }
+:focus-visible { outline-color: var(--cobalto); }
+.papel { background: var(--fondo-2); color: var(--texto); }
+.rejilla { background: var(--fondo); }
+.cuadros { background: var(--fondo); }
+.boton { border-radius: 99px; font-weight: 700; letter-spacing: .02em; }
+.boton--claro { background: var(--texto); color: var(--fondo); }
+.boton--claro:hover { background: var(--cobalto); }
+dialog .boton--claro { background: var(--porcelana); color: var(--noche); }
+.boton--linea { border-width: 2px; }
+.boton--linea:hover, .papel .boton--linea:hover { background: var(--texto); color: var(--fondo); border-color: var(--texto); }
+.filtros button { border-radius: 99px; }
+.filtros button:hover { border-color: var(--texto); }
+.filtros button[aria-pressed="true"] { background: var(--texto); color: var(--fondo); border-color: var(--texto); }
+.caso__cabeza { color: var(--porcelana); }
+.opcion { background: var(--fondo-2); }
+.opcion:has(input:checked) { background: #dfe3f7; }
+.opcion:has(input:checked)::before { border-color: var(--texto); box-shadow: inset 0 0 0 3px #dfe3f7; }
+.opcion:has(input:focus-visible), .chip input:focus-visible + span, .cot input:focus-visible, .cot textarea:focus-visible { outline-color: var(--cobalto); }
+.cot input:not([type=radio]), .cot textarea { background: #fbfaf6; color: var(--texto); }
+.chip input:checked + span { background: var(--texto); color: var(--fondo); border-color: var(--texto); }
+.indice__lista a:hover .indice__nombre mark, .indice__lista a:focus-visible .indice__nombre mark { background: var(--texto); color: var(--fondo); }
+.labg__pide a { color: var(--texto); }
+.labg__saltos a:hover, .labg__saltos a:focus-visible { background: var(--texto); color: var(--fondo); }
+.titular, .caso__h1, .siguiente__t, .srv__h { font-family: var(--display); font-weight: 900; font-stretch: 72%; text-transform: uppercase; letter-spacing: -.025em; line-height: .86; }
+.titular em, .caso__h1 em, .srv__h em { font: 400 italic 1.04em/1 var(--serif); text-transform: none; letter-spacing: -.01em; color: var(--cobalto-hondo); }
+.caso__cabeza .caso__h1 em { color: inherit; }
+.titular--pagina { font-size: clamp(72px, 13vw, 260px); line-height: .8; }
+.caso__h1 { font-size: clamp(44px, 7vw, 140px); }
+.tarjeta__titulo, .labc__t, .labg__t, .srv__n, .paso__h, .paq__n, .tray__n, .lista-anios h3 { font-family: var(--display); font-weight: 800; font-stretch: 80%; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+.res__n, .srv__cifra, .cot__rango { font-family: var(--display); font-weight: 900; font-stretch: 75%; letter-spacing: -.02em; }
+.barra { color: var(--texto); }
+.barra[data-solida] { background: rgba(243, 240, 232, .9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--linea-n); }
+.barra__nombre { display: inline-flex; align-items: baseline; gap: .45em; font: 900 1.65rem/1 var(--display); font-stretch: 72%; letter-spacing: -.01em; text-transform: uppercase; }
+.barra__nombre span { font: 400 italic 1.05rem/1 var(--serif); text-transform: none; letter-spacing: 0; color: var(--cobalto-hondo); }
+.barra__nav ul { gap: 8px; }
+.barra__nav a, .barra__idioma { display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border: 2px solid currentColor; border-radius: 99px;
+font: 700 .75rem/1 var(--sans); letter-spacing: .07em; text-transform: uppercase; text-decoration: none; transition: background-color .25s var(--curva), color .25s var(--curva), border-color .25s var(--curva); }
+.barra__nav a:hover, .barra__idioma:hover { text-decoration: none; background: var(--cobalto); border-color: var(--cobalto); color: var(--porcelana); }
+.barra__nav a[aria-current] { background: var(--texto); border-color: var(--texto); color: var(--fondo); }
+.barra__nav a[aria-current]::after { display: none; }
+.barra__wa { border-radius: 99px; height: 36px; min-height: 36px; padding: 0 18px; font-size: .75rem; letter-spacing: .07em; text-transform: uppercase; }
+@media (max-width: 759px) {
+.barra__nombre { font-size: 1.45rem; }
+.barra__nombre span { display: none; }
+.barra__nav ul { justify-content: flex-start; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 8px; }
+.barra__nav ul::-webkit-scrollbar { display: none; }
+.barra__nav a { height: 32px; padding: 0 12px; font-size: .6875rem; white-space: nowrap; }
+.barra__idioma { height: 32px; padding: 0 12px; }
+}
+.pie { background: var(--noche); color: var(--porcelana); border-top: 0; padding: clamp(72px, 12vh, 140px) var(--g) 28px; }
+.pie__grande { margin: 0 0 clamp(28px, 6vh, 64px); font: 900 clamp(64px, 14vw, 260px)/.8 var(--display); font-stretch: 70%; text-transform: uppercase; letter-spacing: -.03em; }
+.pie__grande a { color: inherit; text-decoration: none; transition: color .3s; }
+.pie__grande a:hover { color: #7d93ff; }
+.pie__botones { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 clamp(40px, 8vh, 80px); }
+.pie__botones a, .pie__botones button { display: inline-flex; align-items: center; gap: .5em; min-height: 44px; padding: 0 20px; border-radius: 99px; border: 2px solid var(--porcelana);
+background: var(--porcelana); color: var(--noche); font: 700 .8125rem/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background-color .25s, color .25s, border-color .25s; }
+.pie__botones a:hover, .pie__botones button:hover { background: var(--cobalto); border-color: var(--cobalto); color: var(--porcelana); }
+.pie__botones .pie__sec { background: transparent; color: var(--porcelana); }
+.pie__fila { border-top: 1px solid rgba(243, 240, 232, .2); padding-top: 22px; }
+.pie__nombre { font: 900 clamp(36px, 4vw, 64px)/.85 var(--display); font-stretch: 72%; text-transform: uppercase; letter-spacing: -.02em; }
+.pie__nombre span { display: block; margin-top: .25em; font: 400 italic .5em/1 var(--serif); text-transform: none; letter-spacing: 0; color: #9fb0ff; }
+.pie__oficio, .pie__tipos { color: #A9A7A1; }
+.pie :focus-visible { outline-color: var(--porcelana); }
+.barra { color: var(--cobalto); }
+.barra__nav a[aria-current] { background: var(--cobalto); border-color: var(--cobalto); color: var(--porcelana); }
+.titular, .res__n, .srv__cifra, .cot__rango, .srv__h, .srv__n, .labc__t, .labg__t, .paso__h, .paq__n, .tray__n, .lista-anios h3 { color: var(--cobalto); }
+.titular em, .srv__h em { color: var(--cobalto-hondo); }
+.filtros button[aria-pressed="true"] { background: var(--cobalto); color: var(--porcelana); border-color: var(--cobalto); }</style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="p-lab">
 <a class="saltar" href="#contenido">Skip to content</a>
 <header class="barra" data-barra data-solida>
 <div class="barra__fila">
-<a class="barra__nombre" href="../../en/">Andrés Alzate</a>
+<a class="barra__nombre" href="../../en/" aria-label="Nauta, Andrés Alzate: home">Nauta<span aria-hidden="true">Andrés Alzate</span></a>
 <nav class="barra__nav" aria-label="Main"><ul><li><a href="../../en/work/">Work</a></li><li><a href="../../en/lab/" aria-current="page">Formats</a></li><li><a href="../../en/services/">Services</a></li><li><a href="../../en/about/">About</a></li></ul></nav>
 <a class="barra__idioma" href="../../laboratorio/" hreflang="es" lang="es" title="Español">ES</a>
 <a class="boton boton--cobalto boton--chico barra__wa" href="https://wa.me/573194185762?text=Hi%20Andr%C3%A9s%2C%20I%20found%20you%20through%20your%20website." data-medir="wa-barra">WhatsApp</a>
@@ -591,8 +668,10 @@ html:not(.js) .lt-lista > *:not(summary), .lt-lista[open] > * { display: revert;
 </section>
 </main>
 <footer class="pie">
+<p class="pie__grande"><a href="https://wa.me/573194185762?text=Hi%20Andr%C3%A9s%2C%20I%20found%20you%20through%20your%20website." data-medir="wa-pie-grande">Let's talk ↗</a></p>
+<p class="pie__botones"><a href="https://wa.me/573194185762?text=Hi%20Andr%C3%A9s%2C%20I%20found%20you%20through%20your%20website." data-medir="wa-pie-boton">WhatsApp ↗</a><a class="pie__sec" href="mailto:iwannatrip02@gmail.com?subject=Request%20from%20your%20website" data-medir="correo-pie">Email ↗</a><button type="button" class="pie__sec" data-copiar-correo="iwannatrip02@gmail.com" data-hecho="Email copied">Copy email</button><a class="pie__sec" href="https://ytjobs.co/talent/profile/651852" rel="me noopener" data-medir="perfil-ytjobs">YTJobs ↗</a><a class="pie__sec" href="https://www.workana.com/freelancer/495cc3d631ce0f4c2ecd2d71fc5de138" rel="me noopener" data-medir="perfil-workana">Workana ↗</a></p>
 <div class="pie__fila">
-<p class="pie__nombre">Andrés Alzate</p>
+<p class="pie__nombre">Nauta<span>Andrés Alzate</span></p>
 <p class="pie__oficio">Visual artist and editor<br>El Carmen de Viboral, Antioquia, Colombia · UTC-5</p>
 <ul class="pie__enlaces">
 <li><a href="https://wa.me/573194185762?text=Hi%20Andr%C3%A9s%2C%20I%20found%20you%20through%20your%20website." data-medir="wa-pie">WhatsApp</a></li>
@@ -600,7 +679,7 @@ html:not(.js) .lt-lista > *:not(summary), .lt-lista[open] > * { display: revert;
 <li>Also on: <a href="https://ytjobs.co/talent/profile/651852" rel="me noopener">YTJobs</a> · <a href="https://www.workana.com/freelancer/495cc3d631ce0f4c2ecd2d71fc5de138" rel="me noopener">Workana</a></li>
 </ul>
 </div>
-<p class="pie__tipos">© 2026 Andrés Alzate · Type: Instrument Serif, Instrument Sans and IBM Plex Mono (SIL OFL). Every image is a frame from my work.</p>
+<p class="pie__tipos">© 2026 Nauta · Andrés Alzate · Type: Archivo, Instrument Serif, Instrument Sans and IBM Plex Mono (SIL OFL). Every image is a frame from my work.</p>
 </footer>
 <script src="../../assets/sitio.js" defer></script>
 </body>

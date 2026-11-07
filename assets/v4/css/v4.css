@@ -1,0 +1,236 @@
+/* Web v4 · prototipo de portada. Porcelana + tinta cobalto (la loza pintada a mano de El Carmen de Viboral). */
+@font-face{font-family:Archivo;src:url(../fuentes/archivo-wdth.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Instrument Sans";src:url(../fuentes/instrument-sans.woff2) format("woff2");font-weight:400 700;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(../fuentes/instrument-serif.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Instrument Serif";font-style:italic;src:url(../fuentes/instrument-serif-italic.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Plex;src:url(../fuentes/plex-mono.woff2) format("woff2");font-display:swap}
+
+:root{
+  --porcelana:#F3F0E8; --porcelana-2:#E9E4D8; --cobalto:#2340C8; --cobalto-hondo:#1A2E9C; --noche:#0B0B0C; --rojo:#C8322B;
+  --tinta:var(--cobalto); --fondo:var(--porcelana);
+  --g:clamp(16px,2.6vw,44px); --curva:cubic-bezier(.2,.7,0,1);
+  --sans:"Instrument Sans",system-ui,sans-serif; --display:Archivo,"Instrument Sans",sans-serif; --mono:Plex,ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{background:var(--porcelana);color:var(--tinta);-webkit-font-smoothing:antialiased}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{margin:0;font:500 16px/1.4 var(--sans);overflow-x:hidden;background:var(--porcelana)}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--cobalto);color:var(--porcelana)}
+
+/* ---------- precarga: gotas de tinta que se juntan (filtro goo) ---------- */
+#precarga{position:fixed;inset:0;z-index:100;background:var(--porcelana);display:none;place-items:center}
+/* la precarga solo existe si corre el JS; si a los 12 s la portada no arrancó (navegador viejo, red caída), se retira y queda la página legible */
+.js4 #precarga{display:grid}
+.fallo4 #precarga{display:none}
+#precarga svg{width:120px;height:120px;overflow:visible}
+#precarga .gotas{filter:url(#goo)}
+#precarga circle{fill:var(--cobalto)}
+#precarga .cuenta{position:absolute;bottom:var(--g);left:var(--g);font:12px var(--mono);letter-spacing:.08em}
+html.listo #precarga{pointer-events:none}
+
+/* ---------- cabecera ---------- */
+.cab{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:var(--g);
+  color:var(--tinta);transition:color .35s var(--curva),padding .45s var(--curva),background-color .35s var(--curva),box-shadow .35s}
+/* al dejar la portada, la cabecera se compacta y toma un velo de porcelana (o de noche sobre el reel y el pie) para no pisar los titulares */
+.cab.compacta{padding:12px var(--g);background:rgba(243,240,232,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(35,64,200,.18)}
+.cab.compacta.sobre-oscuro{background:rgba(11,11,12,.72);box-shadow:none}
+.cab.compacta .monograma{width:36px;height:36px}
+.cab.sobre-oscuro{color:var(--porcelana)}
+.monograma{width:44px;height:44px;display:block}
+.monograma svg{width:100%;height:100%;overflow:visible}
+.monograma circle,.monograma path{fill:currentColor}
+.cab nav{display:flex;gap:8px}
+.pildora{display:inline-flex;align-items:center;height:38px;padding:0 18px;border:2px solid currentColor;border-radius:99px;
+  font:700 13px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;position:relative;overflow:hidden;isolation:isolate}
+.pildora::before{content:"";position:absolute;inset:0;background:currentColor;transform:translateY(102%);border-radius:inherit;
+  transition:transform .45s var(--curva);z-index:-1}
+.pildora span{transition:color .45s var(--curva)}
+.pildora:hover::before{transform:none}
+.pildora:hover span{color:var(--fondo)}
+.cab.sobre-oscuro .pildora:hover span{color:var(--noche)}
+.cab .rec{display:inline-flex;align-items:center;gap:8px;font:12px var(--mono);letter-spacing:.08em;margin-right:14px}
+.cab .rec i{width:9px;height:9px;border-radius:50%;background:var(--rojo);box-shadow:0 0 0 0 rgba(200,50,43,.6);animation:rec 1.6s infinite}
+@keyframes rec{50%{opacity:.25}}
+
+/* ---------- lienzos ---------- */
+#gl{position:fixed;inset:0;width:100vw;height:100vh;z-index:20;pointer-events:none}
+#tinta{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* ---------- portada ---------- */
+.portada{position:relative;height:100vh;min-height:620px;overflow:hidden}
+.titular{position:absolute;left:var(--g);right:var(--g);top:21vh;margin:0;z-index:2;pointer-events:none}
+.titular{--fs:clamp(96px,22vw,440px)}
+.marca{display:block;font:900 var(--fs)/.8 var(--display);font-stretch:72%;letter-spacing:-.035em;color:var(--tinta);
+  text-transform:uppercase;white-space:nowrap}
+.marca .letra{display:inline-block;will-change:transform}
+/* «Andrés Alzate» en Ballet: contornos que se escriben y se llenan de tinta; el halo de porcelana lo separa del negro de NAUTA */
+.nombre{position:absolute;left:calc(var(--fs)*.5);top:calc(var(--fs)*.5);width:calc(var(--fs)*1.98);max-width:calc(100vw - var(--g)*2 - var(--fs)*.4);
+  transform:rotate(-6deg);transform-origin:0 50%}
+.nombre.liquido{filter:url(#liquido)}
+.nombre svg{display:block;width:100%;height:auto;overflow:visible}
+.nombre path{fill:var(--cobalto-hondo);fill-opacity:0;stroke:var(--cobalto-hondo);stroke-width:1.3px;vector-effect:non-scaling-stroke;
+  paint-order:stroke;stroke-linejoin:round}
+.oculto{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.bajada{position:absolute;left:var(--g);top:calc(21vh + clamp(96px,22vw,440px)*1.32);z-index:2;margin:0;
+  font:700 13px/1.5 var(--sans);letter-spacing:.07em;text-transform:uppercase;max-width:34ch}
+.bajada b{color:var(--rojo);font-weight:700}
+.gl-portada{position:absolute;inset:0 0 -45vh 0;pointer-events:none}
+.ancla-tv{position:absolute;right:8vw;bottom:3vh;width:min(34vw,620px);height:66vh;z-index:3;cursor:pointer}
+.esquina{position:absolute;bottom:var(--g);z-index:2;font:12px var(--mono);letter-spacing:.08em}
+.esquina.izq{left:var(--g)}
+.esquina.centro{left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px}
+.esquina.centro svg{width:18px;height:26px;animation:baja 2.2s var(--curva) infinite}
+@keyframes baja{0%{transform:translateY(-6px);opacity:0}40%{opacity:1}100%{transform:translateY(8px);opacity:0}}
+
+/* ---------- reel que crece ---------- */
+.reel{position:relative;height:260vh;background:var(--porcelana)}
+.reel-pin{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden}
+.reel-marco{position:relative;width:100vw;height:100vh;clip-path:inset(31vh 29vw 31vh 29vw round 18px);will-change:clip-path}
+.reel-marco video,.reel-marco img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.franjas{position:absolute;inset:0;display:flex;pointer-events:none}
+.franjas i{flex:1;background:var(--cobalto);transform:scaleY(0);transform-origin:top}
+.reel-rotulo{position:absolute;left:var(--g);right:var(--g);bottom:var(--g);display:flex;justify-content:space-between;align-items:end;
+  color:var(--porcelana);font:12px var(--mono);letter-spacing:.08em;z-index:2;opacity:0}
+.reel-rotulo .play{font:700 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;border:2px solid currentColor;border-radius:99px;
+  padding:10px 18px;pointer-events:auto;cursor:pointer;background:none;color:inherit}
+
+/* ---------- manifiesto ---------- */
+.manifiesto{position:relative;padding:22vh var(--g) 16vh;display:grid;grid-template-columns:minmax(120px,16vw) 1fr;gap:var(--g)}
+.etiqueta{font:700 12px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;padding-top:.9em}
+.manifiesto p{margin:0;font:800 clamp(30px,4.3vw,80px)/.95 var(--display);font-stretch:88%;letter-spacing:-.02em;text-transform:uppercase}
+.manifiesto .sangria{display:inline-block;width:22%}
+.manifiesto p em{font:400 italic 1.02em/1 "Instrument Serif",serif;text-transform:none;letter-spacing:0;color:var(--cobalto-hondo)}
+.linea-mask{overflow:hidden;display:block;padding-bottom:.06em;margin-bottom:-.06em}
+
+/* ---------- grilla de trabajos ---------- */
+.trabajos{padding:0 var(--g) 10vh}
+.trabajos-cab{display:flex;justify-content:space-between;align-items:end;padding:0 0 22px;border-bottom:1px solid currentColor}
+.trabajos-cab h2{margin:0;font:900 clamp(48px,9vw,170px)/.8 var(--display);font-stretch:70%;text-transform:uppercase;letter-spacing:-.03em}
+.trabajos-cab span{font:12px var(--mono);letter-spacing:.08em}
+.grilla{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid rgba(35,64,200,.25)}
+.celda{position:relative;aspect-ratio:1/1.02;border-right:1px solid rgba(35,64,200,.25);border-bottom:1px solid rgba(35,64,200,.25);
+  overflow:hidden;cursor:pointer;display:block}
+.celda .circulo{position:absolute;inset:0;background:var(--c,var(--cobalto));clip-path:circle(0% at var(--mx,50%) var(--my,50%));
+  transition:clip-path .7s var(--curva)}
+.celda:hover .circulo{clip-path:circle(75% at var(--mx,50%) var(--my,50%))}
+.celda .marquesina{position:absolute;left:0;right:0;top:38%;white-space:nowrap;font:900 clamp(60px,7vw,130px)/1 var(--display);font-stretch:68%;
+  text-transform:uppercase;color:var(--porcelana);opacity:0;transition:opacity .4s;pointer-events:none}
+.celda:hover .marquesina{opacity:1}
+.celda .marquesina span{display:inline-block;animation:marq 9s linear infinite;padding-right:.6em}
+@keyframes marq{to{transform:translateX(-100%)}}
+.celda .ancla{position:absolute;inset:8% 8% 18%}
+.celda[data-formato="9x16"] .ancla{inset:9% 8% 27%}
+.celda .pie{position:absolute;left:8%;right:8%;bottom:6%;display:flex;justify-content:space-between;align-items:end;gap:12px;z-index:25;
+  transition:color .4s}
+.celda:hover .pie{color:var(--porcelana)}
+.celda .pie b{font:700 clamp(15px,1.25vw,20px)/1.15 var(--sans)}
+.celda .pie sup{font:600 10px var(--mono);margin-left:3px}
+.celda .pie small{display:block;font:500 12px/1.3 var(--sans);opacity:.8;margin-top:4px;max-width:34ch}
+.celda .pie .cifra{font:900 clamp(22px,2vw,34px)/1 var(--display);font-stretch:75%;text-align:right;white-space:nowrap}
+.celda .tipo{position:absolute;top:6%;left:8%;font:11px var(--mono);letter-spacing:.08em;text-transform:uppercase;z-index:25;transition:color .4s}
+.celda:hover .tipo{color:var(--porcelana)}
+
+/* ---------- más proyectos ---------- */
+.mas{padding:6vh var(--g) 18vh;position:relative}
+.mas h3{margin:0 0 3vh;font:400 italic clamp(40px,5vw,84px)/1 "Instrument Serif",serif;letter-spacing:-.01em}
+.fila{display:grid;grid-template-columns:3ch 1.3fr 1fr 13ch;gap:var(--g);align-items:baseline;padding:22px 0;border-top:1px solid rgba(35,64,200,.25);
+  position:relative;transition:padding .45s var(--curva),color .3s}
+.fila:last-child{border-bottom:1px solid rgba(35,64,200,.25)}
+.fila .n{font:12px var(--mono)}
+.fila .t{font:800 clamp(22px,2.6vw,44px)/1 var(--display);font-stretch:80%;text-transform:uppercase;letter-spacing:-.01em}
+.fila .r{font:500 14px/1.35 var(--sans);opacity:.75}
+.fila .a{font:12px var(--mono);white-space:nowrap;text-align:right}
+.fila:hover{padding-left:18px}
+.vista-flotante{position:fixed;left:0;top:0;width:340px;aspect-ratio:16/10;z-index:40;pointer-events:none;border-radius:6px;overflow:hidden;
+  opacity:0;transform:scale(.6);transition:opacity .3s,transform .5s var(--curva)}
+.vista-flotante.on{opacity:1;transform:scale(1)}
+.vista-flotante video,.vista-flotante img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ---------- pie ---------- */
+.pie-web{background:var(--noche);color:var(--porcelana);padding:14vh var(--g) var(--g);position:relative;overflow:hidden}
+.pie-web .grande{font:900 clamp(60px,14vw,260px)/.8 var(--display);font-stretch:70%;text-transform:uppercase;letter-spacing:-.03em;margin:0 0 8vh}
+.pie-web .grande a{color:var(--porcelana);transition:color .3s}
+.pie-web .grande a:hover{color:#7d93ff}
+.pie-web .redes{display:flex;gap:8px;flex-wrap:wrap}
+.pie-web .redes a{background:var(--porcelana);color:var(--noche);border-radius:99px;padding:10px 18px;font:700 13px var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.pie-web .legal{display:flex;justify-content:space-between;margin-top:8vh;font:11px/1.5 var(--mono);letter-spacing:.06em;opacity:.7;gap:var(--g);flex-wrap:wrap}
+
+/* ---------- cursor ---------- */
+.cursor{position:fixed;left:0;top:0;z-index:90;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
+  background:var(--cobalto);mix-blend-mode:multiply;transition:width .35s var(--curva),height .35s var(--curva),margin .35s var(--curva),background .3s;
+  display:grid;place-items:center;font:700 11px var(--sans);letter-spacing:.06em;color:var(--porcelana)}
+.cursor span{opacity:0;transition:opacity .2s}
+.cursor.grande{width:92px;height:92px;margin:-46px 0 0 -46px;mix-blend-mode:normal}
+.cursor.grande span{opacity:1}
+@media (hover:none){.cursor{display:none}}
+
+/* ---------- celular ---------- */
+@media (max-width:820px){
+  .cab nav .pildora:not(.llena):not(.idioma):not(:nth-of-type(1)),.cab .rec{display:none}
+  .cab nav{gap:6px}
+  .pildora{height:36px;padding:0 13px;font-size:12px}
+  .hago__cab{grid-template-columns:1fr}
+  .servicio{grid-template-columns:1fr auto}
+  .servicio__c{display:none}
+  .titular{top:17vh}
+  .nombre{left:calc(var(--fs)*.3);top:calc(var(--fs)*.62);width:calc(100vw - var(--g)*2 - var(--fs)*.3)}
+  .ancla-tv{right:-8vw;width:96vw;height:46vh;bottom:4vh}
+  .manifiesto{grid-template-columns:1fr}
+  .grilla{grid-template-columns:1fr}
+  .fila{grid-template-columns:3ch 1fr auto}
+  .fila .r{display:none}
+}
+/* ---------- sitio publicado (7-nov): accesos, respaldo sin WebGL, tacto, grupos, servicios, contacto ---------- */
+.saltar{position:absolute;left:16px;top:-100px;z-index:120;background:var(--noche);color:var(--porcelana);padding:10px 16px;border-radius:99px}
+.saltar:focus{top:12px}
+:focus-visible{outline:2px solid var(--cobalto);outline-offset:3px}
+.cab nav{align-items:center}
+.pildora.llena{background:var(--cobalto);border-color:var(--cobalto);color:var(--porcelana)}
+.pildora.llena::before{background:var(--noche)}
+.pildora.llena:hover span{color:var(--porcelana)}
+.cab.sobre-oscuro .pildora.llena{background:var(--porcelana);border-color:var(--porcelana);color:var(--noche)}
+.portada{touch-action:pan-y}
+.tv-respaldo{display:none}
+html.sin-gl .tv-respaldo{display:block;position:absolute;right:8vw;bottom:8vh;width:min(34vw,620px);aspect-ratio:16/9;object-fit:cover;border-radius:10px;z-index:2}
+.celda__poster{position:absolute;inset:14% 10% 24%;width:80%;height:62%;object-fit:cover;border-radius:10px;z-index:1;transition:opacity .6s var(--curva)}
+.celda.con-gl .celda__poster{opacity:0}
+.celda.activa .circulo{clip-path:circle(75% at 50% 50%)}
+.celda.activa .marquesina{opacity:1}
+.celda.activa .pie,.celda.activa .tipo{color:var(--porcelana)}
+.mas__grupo{margin-top:6vh}
+.mas__g{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 10px;font:700 12px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.mas__g span{font:12px var(--mono)}
+.fila .mini{display:none}
+.mas__todo{margin:6vh 0 0}
+.hago{padding:4vh var(--g) 18vh}
+.hago__cab{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--g);align-items:end;padding-bottom:22px;border-bottom:1px solid currentColor}
+.hago__cab h2{margin:0;font:900 clamp(48px,9vw,170px)/.8 var(--display);font-stretch:70%;text-transform:uppercase;letter-spacing:-.03em}
+.hago__cab p{margin:0;font:500 15px/1.45 var(--sans);max-width:36ch}
+.servicio{display:grid;grid-template-columns:1.1fr 1.4fr 15ch;gap:var(--g);align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(35,64,200,.25);transition:padding .45s var(--curva),background-color .3s}
+.servicio:hover{padding-left:18px}
+.servicio__n{font:800 clamp(22px,2.4vw,40px)/1 var(--display);font-stretch:80%;text-transform:uppercase;letter-spacing:-.01em}
+.servicio__c{font:500 14px/1.4 var(--sans);opacity:.8}
+.servicio__p{font:12px var(--mono);letter-spacing:.06em;white-space:nowrap;text-transform:uppercase;text-align:right}
+.pie-web .redes a,.pie-web .redes button{display:inline-flex;align-items:center;min-height:44px;background:var(--porcelana);color:var(--noche);border:2px solid var(--porcelana);border-radius:99px;
+  padding:0 20px;font:700 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
+.pie-web .redes .sec{background:transparent;color:var(--porcelana)}
+.pie-web .redes a:hover,.pie-web .redes button:hover{background:var(--cobalto);border-color:var(--cobalto);color:var(--porcelana)}
+.pie-nav{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:6vh;font:700 13px var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.pie-nav a:hover{color:#9fb0ff}
+.pie-web :focus-visible{outline-color:var(--porcelana)}
+.dialogo{width:min(96vw,1200px);padding:0;border:0;background:var(--noche);color:var(--porcelana);border-radius:12px;overflow:hidden}
+.dialogo::backdrop{background:rgba(11,11,12,.82)}
+.dialogo video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.dialogo .pildora{position:absolute;top:12px;right:12px;color:var(--porcelana);background:rgba(11,11,12,.6)}
+@media (hover:none){
+  .fila{grid-template-columns:3ch 1fr 76px;align-items:center}
+  .fila .r,.fila .a{display:none}
+  .fila .mini{display:block;width:76px;aspect-ratio:16/10;object-fit:cover;border-radius:6px}
+  .fila:hover{padding-left:0}
+}
+@media (orientation:portrait){.esquina.izq{display:none}}
+@media (prefers-reduced-motion:reduce){
+  html:not(.forzar-mov) *,html:not(.forzar-mov) *::before,html:not(.forzar-mov) *::after{animation:none!important;transition:none!important}
+}

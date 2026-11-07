@@ -257,4 +257,10 @@
     $$('[data-cotizar]').forEach(a => a.addEventListener('click', () => { marcar(a.dataset.cotizar); calcular(); }));
     calcular();
   }
+  // ---- pie: copiar el correo (para quien no usa el cliente de correo del sistema)
+  $$('[data-copiar-correo]').forEach(b => b.addEventListener('click', async () => {
+    const c = b.dataset.copiarCorreo, antes = b.textContent;
+    try { await navigator.clipboard.writeText(c); } catch (_) { const i = document.createElement('input'); i.value = c; document.body.append(i); i.select(); document.execCommand('copy'); i.remove(); }
+    b.textContent = b.dataset.hecho; medir('copiar-correo'); setTimeout(() => { b.textContent = antes; }, 2200);
+  }));
 })();
