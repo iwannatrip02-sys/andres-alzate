@@ -732,7 +732,36 @@ background: var(--cobalto); color: var(--porcelana); font: 700 .78rem/1 var(--sa
 .franja-ilu__cab { grid-column: 1 / span 4; }
 .franja-ilu__obras { grid-column: 5 / -1; grid-template-columns: repeat(6, minmax(0, 1fr)); }
 }
-.libro .titular, .franja-ilu .titular { margin-bottom: 22px; }</style>
+.libro .titular, .franja-ilu .titular { margin-bottom: 22px; }
+.ia { padding-block: clamp(28px, 5vw, 72px) var(--sec); }
+.ia__sec { padding-block: clamp(40px, 5.5vw, 88px); row-gap: clamp(22px, 3vw, 40px); border-top: 1px solid var(--linea-p); align-items: start; }
+.ia__sec:first-child { border-top: 0; padding-top: 0; }
+.ia__cab .titular { margin: 12px 0 0; }
+.ia__p { max-width: 30em; margin: 16px 0 0; color: var(--gris-p); }
+.ia__perfil p { max-width: 36em; margin: 0 0 14px; }
+.ia__tj { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: clamp(26px, 3vw, 44px) var(--g); margin: 0; padding: 0; list-style: none; }
+.ia__tj li { border-top: 2px solid var(--cobalto); padding-top: 14px; }
+.ia__n { margin: 0; font: 900 clamp(30px, 2.9vw, 50px)/1 var(--display); font-stretch: 72%; letter-spacing: -.01em; color: var(--cobalto); overflow-wrap: anywhere; }
+.ia__h { margin: 12px 0 6px; font: 700 1.0625rem/1.25 var(--sans); }
+.ia__d { margin: 0; color: var(--gris-p); font-size: .9875rem; }
+.ia__tj--cifras .ia__d { margin-top: 8px; }
+.ia__figs { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: clamp(26px, 3vw, 44px) var(--g); }
+.ia__fig { margin: 0; }
+.ia__img { display: block; overflow: hidden; aspect-ratio: 16 / 10; background: var(--noche); }
+.ia__img img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .6s var(--curva); }
+.ia__fig:hover .ia__img img { transform: scale(1.03); }
+.ia__fig figcaption { margin-top: 14px; }
+.ia__fig .ia__d { margin: 8px 0 12px; }
+.ia__mas, .ia__extra { margin: 0; }
+.ia__extra { max-width: 36em; padding-top: 16px; border-top: 1px solid var(--linea-p); }
+.ia__lista { margin: 0; padding: 0; list-style: none; max-width: 40em; }
+.ia__lista li { padding: 14px 0; border-top: 1px solid var(--linea-p); }
+.ia__lista li:first-child { border-top: 0; padding-top: 0; }
+.ia .hice__con { margin: 0; padding: 0; list-style: none; }
+@media (min-width: 1000px) {
+.ia__cab { grid-column: 1 / span 4; grid-row: 1 / span 4; position: sticky; top: calc(var(--barra) + 24px); }
+.ia__sec > :not(.ia__cab) { grid-column: 5 / -1; }
+}</style>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "@id": "https://iwannatrip02-sys.github.io/andres-alzate/en/work/bees-extinction/#obra", "name": "Bees: the extinction", "description": "A holiday special for Viboral Televisión about bees and the region’s beekeepers.", "url": "https://iwannatrip02-sys.github.io/andres-alzate/en/work/bees-extinction/", "inLanguage": "en", "image": "https://iwannatrip02-sys.github.io/andres-alzate/media/og/caso-abejas-la-extincion.jpg", "creator": {"@id": "https://iwannatrip02-sys.github.io/andres-alzate/#andres"}, "isPartOf": {"@id": "https://iwannatrip02-sys.github.io/andres-alzate/#sitio"}, "dateCreated": "2020"}, {"@type": "BreadcrumbList", "@id": "https://iwannatrip02-sys.github.io/andres-alzate/en/work/bees-extinction/#migas", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Nauta · Andrés Alzate", "item": "https://iwannatrip02-sys.github.io/andres-alzate/en/"}, {"@type": "ListItem", "position": 2, "name": "Work", "item": "https://iwannatrip02-sys.github.io/andres-alzate/en/work/"}, {"@type": "ListItem", "position": 3, "name": "Bees: the extinction", "item": "https://iwannatrip02-sys.github.io/andres-alzate/en/work/bees-extinction/"}]}]}</script>
 </head>
