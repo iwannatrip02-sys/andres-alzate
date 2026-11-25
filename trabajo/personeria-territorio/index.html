@@ -646,7 +646,93 @@ background: var(--porcelana); color: var(--noche); font: 700 .8125rem/1 var(--sa
 .barra__nav a[aria-current] { background: var(--cobalto); border-color: var(--cobalto); color: var(--porcelana); }
 .titular, .res__n, .srv__cifra, .cot__rango, .srv__h, .srv__n, .labc__t, .labg__t, .paso__h, .paq__n, .tray__n, .lista-anios h3 { color: var(--cobalto); }
 .titular em, .srv__h em { color: var(--cobalto-hondo); }
-.filtros button[aria-pressed="true"] { background: var(--cobalto); color: var(--porcelana); border-color: var(--cobalto); }</style>
+.filtros button[aria-pressed="true"] { background: var(--cobalto); color: var(--porcelana); border-color: var(--cobalto); }
+.vit__t { font-size: clamp(52px, 10.5vw, 210px); overflow-wrap: anywhere; }
+.vit__chips ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+.vit__chips a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border: 2px solid var(--texto); border-radius: 99px;
+font: 700 .75rem/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; color: var(--texto); white-space: nowrap;
+transition: background-color .25s var(--curva), color .25s var(--curva), border-color .25s var(--curva); }
+.vit__chips a:hover { background: var(--cobalto); border-color: var(--cobalto); color: var(--porcelana); }
+.vit__chips a[aria-current] { background: var(--cobalto); border-color: var(--cobalto); color: var(--porcelana); }
+.vit { padding-block: clamp(28px, 5vw, 72px) var(--sec); }
+.vit__lista { row-gap: clamp(56px, 8vw, 120px); }
+.vit__item { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.vit__cab p { margin: 0; }
+.vit__h { margin: 10px 0 8px; font: 800 clamp(26px, 3vw, 46px)/1 var(--display); font-stretch: 80%; text-transform: uppercase; letter-spacing: -.01em; color: var(--cobalto); }
+.vit__n { max-width: 40em; color: var(--gris-p); }
+.vit__v video { display: block; width: 100%; height: auto; background: #000; }
+.vit__v--h video { aspect-ratio: 16 / 9; }
+.vit__v--v { max-width: 420px; }
+.vit__v--v video { aspect-ratio: 9 / 16; object-fit: cover; max-height: 82vh; }
+.vit__v.bucles figcaption { padding-inline: 0; }
+.vit__otros { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+.vit__mas { margin: 0; }
+.vit__gal { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 14px; }
+.vit__gal figure { margin: 0; }
+.vit__gal img { display: block; width: 100%; height: auto; }
+.vit__gal figcaption { margin-top: 8px; }
+@media (min-width: 1000px) {
+.vit__item { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); column-gap: var(--g); align-items: start; }
+.vit__item > :not(.vit__cab) { grid-column: 2; }
+.vit__cab { grid-row: 1 / span 4; position: sticky; top: calc(var(--barra) + 24px); }
+}
+.ilu { padding-block: clamp(24px, 4vw, 56px); }
+.ilu__rejilla { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); align-items: start; }
+.ilu__col { display: flex; flex-direction: column; gap: clamp(12px, 1.6vw, 24px); }
+.ilu__f { margin: 0; }
+@media (max-width: 699px) {
+.ilu__rejilla { display: flex; flex-direction: column; gap: 16px; }
+.ilu__col { display: contents; }
+.ilu__f { order: var(--o); }
+}
+.ilu__b { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.ilu__b img { display: block; width: 100%; height: auto; transition: transform .5s var(--curva), box-shadow .5s var(--curva); }
+.ilu__b:hover img, .ilu__b:focus-visible img { transform: translateY(-3px); box-shadow: 0 14px 30px -18px rgba(11, 11, 12, .55); }
+.ilu__cap { margin-top: 8px; font: 400 italic 1.05rem/1.3 var(--serif); color: var(--texto); }
+.ilu__mur, .ilu__enc2 { padding-block: clamp(40px, 6vw, 96px) 0; row-gap: 18px; }
+.ilu__mur-txt { max-width: 42em; }
+.ilu__mur-txt p { margin: 0 0 14px; }
+.ilu__nota { color: var(--gris-p); margin: 0 0 18px; }
+.ilu__enc2 { padding-bottom: var(--sec); }
+@media (min-width: 1000px) {
+.ilu__mur .titular { grid-column: 1 / span 5; }
+.ilu__mur-txt { grid-column: 7 / -1; }
+}
+.ilu__visor { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; padding: clamp(12px, 3vw, 32px); border: 0; background: rgba(11, 11, 12, .96); color: var(--porcelana); }
+.ilu__visor::backdrop { background: rgba(11, 11, 12, .9); }
+.ilu__visor[open] { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+.ilu__visor figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; min-height: 0; }
+.ilu__visor img { max-width: 100%; max-height: 80dvh; width: auto; height: auto; object-fit: contain; }
+.ilu__visor .ilu__cap { color: var(--porcelana); text-align: center; }
+.ilu__ctrl { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0; }
+.libro { padding-block: clamp(40px, 6vw, 96px) clamp(24px, 4vw, 56px); row-gap: 24px; align-items: center; }
+.libro__p { max-width: 34em; color: var(--gris-p); }
+.libro__nota { color: var(--gris-p); margin-top: 10px; }
+.libro__foto { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; overflow: hidden; border-radius: 4px; }
+.libro__foto img { display: block; width: 100%; height: auto; transition: transform .8s var(--curva); }
+.libro__foto:hover img, .libro__foto:focus-visible img { transform: scale(1.025); }
+.libro__play { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 99px;
+background: var(--cobalto); color: var(--porcelana); font: 700 .78rem/1 var(--sans); letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; }
+@media (min-width: 1000px) {
+.libro__txt { grid-column: 1 / span 4; }
+.libro__foto { grid-column: 5 / -1; }
+}
+.libro__dlg { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; padding: 0; border: 0; background: #F3F0E8; overflow: hidden; }
+.libro__dlg::backdrop { background: rgba(11, 11, 12, .6); }
+.libro__dlg iframe { display: block; width: 100%; height: 100%; border: 0; }
+.libro__cerrar { position: absolute; top: max(14px, env(safe-area-inset-top)); right: 16px; }
+.franja-ilu { padding-block: clamp(28px, 4vw, 56px); row-gap: 20px; align-items: center; border-block: 1px solid var(--linea-n); margin-bottom: clamp(28px, 4vw, 56px); }
+.franja-ilu__p { max-width: 34em; color: var(--gris-n); }
+.franja-ilu__acc { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+.franja-ilu__obras { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.franja-ilu__obras a { display: block; aspect-ratio: 4 / 5; overflow: hidden; }
+.franja-ilu__obras img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--curva); }
+.franja-ilu__obras a:hover img { transform: scale(1.04); }
+@media (min-width: 1000px) {
+.franja-ilu__cab { grid-column: 1 / span 4; }
+.franja-ilu__obras { grid-column: 5 / -1; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+.libro .titular, .franja-ilu .titular { margin-bottom: 22px; }</style>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CreativeWork", "@id": "https://iwannatrip02-sys.github.io/andres-alzate/trabajo/personeria-territorio/#obra", "name": "Personería · jornadas en territorio", "description": "El territorio visto desde el aire y el trabajo de la oficina: la sede, las veredas, una escuela, las manos en el teclado.", "url": "https://iwannatrip02-sys.github.io/andres-alzate/trabajo/personeria-territorio/", "inLanguage": "es", "image": "https://iwannatrip02-sys.github.io/andres-alzate/media/og/caso-personeria-territorio.jpg", "creator": {"@id": "https://iwannatrip02-sys.github.io/andres-alzate/#andres"}, "isPartOf": {"@id": "https://iwannatrip02-sys.github.io/andres-alzate/#sitio"}, "dateCreated": "2024"}, {"@type": "BreadcrumbList", "@id": "https://iwannatrip02-sys.github.io/andres-alzate/trabajo/personeria-territorio/#migas", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Nauta · Andrés Alzate", "item": "https://iwannatrip02-sys.github.io/andres-alzate/"}, {"@type": "ListItem", "position": 2, "name": "Trabajo", "item": "https://iwannatrip02-sys.github.io/andres-alzate/trabajo/"}, {"@type": "ListItem", "position": 3, "name": "Personería · jornadas en territorio", "item": "https://iwannatrip02-sys.github.io/andres-alzate/trabajo/personeria-territorio/"}]}]}</script>
 </head>
@@ -655,7 +741,7 @@ background: var(--porcelana); color: var(--noche); font: 700 .8125rem/1 var(--sa
 <header class="barra" data-barra data-solida>
 <div class="barra__fila">
 <a class="barra__nombre" href="../../" aria-label="Nauta, Andrés Alzate: inicio">Nauta<span aria-hidden="true">Andrés Alzate</span></a>
-<nav class="barra__nav" aria-label="Principal"><ul><li><a href="../../trabajo/" aria-current="page">Trabajo</a></li><li><a href="../../laboratorio/">Formatos</a></li><li><a href="../../servicios/">Servicios</a></li><li><a href="../../sobre-mi/">Sobre mí</a></li></ul></nav>
+<nav class="barra__nav" aria-label="Principal"><ul><li><a href="../../trabajo/" aria-current="page">Trabajo</a></li><li><a href="../../ilustracion/">Ilustración</a></li><li><a href="../../laboratorio/">Formatos</a></li><li><a href="../../servicios/">Servicios</a></li><li><a href="../../sobre-mi/">Sobre mí</a></li></ul></nav>
 <a class="barra__idioma" href="../../en/work/ombudsman-in-the-field/" hreflang="en" lang="en" title="English">EN</a>
 <a class="boton boton--cobalto boton--chico barra__wa" href="https://wa.me/573194185762?text=Hola%2C%20Andr%C3%A9s.%20Vengo%20de%20tu%20web." data-medir="wa-barra">WhatsApp</a>
 </div>

@@ -1,0 +1,241 @@
+{
+  "id": "andres",
+  "titulo": "NAUTA",
+  "proceso": "Ilustración digital",
+  "formato": {
+    "ancho": 0.16,
+    "alto": 0.2
+  },
+  "papel": "blanco",
+  "encuadernacion": "cosido",
+  "tipoHoja": "mixta",
+  "papelPropio": {
+    "color": "#f7f5f0",
+    "textura": {
+      "roughness": 0.35,
+      "fiber": 0.3,
+      "tono": 0.35,
+      "relieve": 0.6
+    }
+  },
+  "hojas": 24,
+  "tapa": {
+    "color": "#0d0c0f",
+    "acabado": "cuero"
+  },
+  "guardas": {
+    "color": "#efc9d3"
+  },
+  "cabezada": {
+    "colores": [
+      "#0d0c0f",
+      "#efc9d3"
+    ]
+  },
+  "portada": null,
+  "paginas": [
+    {
+      "src": "p00.webp",
+      "src1k": "p00_1k.webp",
+      "mini": "t00.webp",
+      "texto": "Todos tus monstruos",
+      "alt": "Todos tus monstruos"
+    },
+    {
+      "src": "p01.webp",
+      "src1k": "p01_1k.webp",
+      "mini": "t01.webp",
+      "texto": "Perro",
+      "alt": "Perro"
+    },
+    {
+      "src": "p02.webp",
+      "src1k": "p02_1k.webp",
+      "mini": "t02.webp",
+      "texto": "Perezoso con guitarra",
+      "alt": "Perezoso con guitarra"
+    },
+    {
+      "src": "p03.webp",
+      "src1k": "p03_1k.webp",
+      "mini": "t03.webp",
+      "texto": "Ilustración con diálogos",
+      "alt": "Ilustración con diálogos"
+    },
+    {
+      "src": "p04.webp",
+      "src1k": "p04_1k.webp",
+      "mini": "t04.webp",
+      "texto": "Ilustración con diálogos",
+      "alt": "Ilustración con diálogos"
+    },
+    {
+      "src": "p05.webp",
+      "src1k": "p05_1k.webp",
+      "mini": "t05.webp",
+      "texto": "Criatura en un frasco",
+      "alt": "Criatura en un frasco (izquierda del pliego)"
+    },
+    {
+      "src": "p06.webp",
+      "src1k": "p06_1k.webp",
+      "mini": "t06.webp",
+      "texto": "Criatura en un frasco",
+      "alt": "Criatura en un frasco (derecha del pliego)"
+    },
+    {
+      "src": "p07.webp",
+      "src1k": "p07_1k.webp",
+      "mini": "t07.webp",
+      "texto": "Levito sobre esta tristeza",
+      "alt": "Levito sobre esta tristeza"
+    },
+    {
+      "src": "p08.webp",
+      "src1k": "p08_1k.webp",
+      "mini": "t08.webp",
+      "texto": "Este silencio es mi aliado",
+      "alt": "Este silencio es mi aliado"
+    },
+    {
+      "src": "p09.webp",
+      "src1k": "p09_1k.webp",
+      "mini": "t09.webp",
+      "texto": "Computador",
+      "alt": "Computador"
+    },
+    {
+      "src": "p10.webp",
+      "src1k": "p10_1k.webp",
+      "mini": "t10.webp",
+      "texto": "Bocetos de objetos",
+      "alt": "Bocetos de objetos"
+    },
+    {
+      "src": "p11.webp",
+      "src1k": "p11_1k.webp",
+      "mini": "t11.webp",
+      "texto": "Manos y rostro",
+      "alt": "Manos y rostro (izquierda del pliego)"
+    },
+    {
+      "src": "p12.webp",
+      "src1k": "p12_1k.webp",
+      "mini": "t12.webp",
+      "texto": "Manos y rostro",
+      "alt": "Manos y rostro (derecha del pliego)"
+    },
+    {
+      "src": "p13.webp",
+      "src1k": "p13_1k.webp",
+      "mini": "t13.webp",
+      "texto": "Comadreja con diálogos",
+      "alt": "Comadreja con diálogos"
+    },
+    {
+      "src": "p14.webp",
+      "src1k": "p14_1k.webp",
+      "mini": "t14.webp",
+      "texto": "Figura en turquesa",
+      "alt": "Figura en turquesa"
+    },
+    {
+      "src": "p15.webp",
+      "src1k": "p15_1k.webp",
+      "mini": "t15.webp",
+      "texto": "Comadreja blanca",
+      "alt": "Comadreja blanca (izquierda del pliego)"
+    },
+    {
+      "src": "p16.webp",
+      "src1k": "p16_1k.webp",
+      "mini": "t16.webp",
+      "texto": "Comadreja blanca",
+      "alt": "Comadreja blanca (derecha del pliego)"
+    },
+    {
+      "src": "p17.webp",
+      "src1k": "p17_1k.webp",
+      "mini": "t17.webp",
+      "texto": "Personaje con globo de diálogo",
+      "alt": "Personaje con globo de diálogo"
+    },
+    {
+      "src": "p18.webp",
+      "src1k": "p18_1k.webp",
+      "mini": "t18.webp",
+      "texto": "Incendiaré la nostalgia y el dolor para darme calor",
+      "alt": "Incendiaré la nostalgia y el dolor para darme calor"
+    },
+    {
+      "src": "p19.webp",
+      "src1k": "p19_1k.webp",
+      "mini": "t19.webp",
+      "texto": "Rostro con diálogos",
+      "alt": "Rostro con diálogos (izquierda del pliego)"
+    },
+    {
+      "src": "p20.webp",
+      "src1k": "p20_1k.webp",
+      "mini": "t20.webp",
+      "texto": "Rostro con diálogos",
+      "alt": "Rostro con diálogos (derecha del pliego)"
+    },
+    {
+      "src": "p21.webp",
+      "src1k": "p21_1k.webp",
+      "mini": "t21.webp",
+      "texto": "Planta en una matera",
+      "alt": "Planta en una matera"
+    },
+    {
+      "src": "p22.webp",
+      "src1k": "p22_1k.webp",
+      "mini": "t22.webp",
+      "texto": "Búho",
+      "alt": "Búho"
+    },
+    {
+      "src": "p23.webp",
+      "src1k": "p23_1k.webp",
+      "mini": "t23.webp",
+      "texto": "Bad trip",
+      "alt": "Bad trip (izquierda del pliego)"
+    },
+    {
+      "src": "p24.webp",
+      "src1k": "p24_1k.webp",
+      "mini": "t24.webp",
+      "texto": "Bad trip",
+      "alt": "Bad trip (derecha del pliego)"
+    },
+    {
+      "src": "p25.webp",
+      "src1k": "p25_1k.webp",
+      "mini": "t25.webp",
+      "texto": "Figura sentada",
+      "alt": "Figura sentada"
+    },
+    {
+      "src": "p26.webp",
+      "src1k": "p26_1k.webp",
+      "mini": "t26.webp",
+      "texto": "Flores en un colador",
+      "alt": "Flores en un colador"
+    },
+    {
+      "src": "p27.webp",
+      "src1k": "p27_1k.webp",
+      "mini": "t27.webp",
+      "texto": "Criatura",
+      "alt": "Criatura"
+    },
+    {
+      "src": "p28.webp",
+      "src1k": "p28_1k.webp",
+      "mini": "t28.webp",
+      "texto": "Lobo",
+      "alt": "Lobo"
+    }
+  ]
+}

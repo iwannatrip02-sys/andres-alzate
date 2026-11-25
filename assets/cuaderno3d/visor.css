@@ -1,0 +1,29 @@
+/* visor del cuaderno 3D · la estética de la web: porcelana, tinta cobalto, Archivo + Instrument Sans + IBM Plex Mono */
+@font-face { font-family: Archivo; src: url(../fuentes/archivo-wdth.woff2) format('woff2'); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: 'Instrument Sans'; src: url(../fuentes/instrument-sans.woff2) format('woff2'); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: 'Instrument Serif'; src: url(../fuentes/instrument-serif-italic.woff2) format('woff2'); font-style: italic; font-display: swap; }
+@font-face { font-family: 'IBM Plex Mono'; src: url(../fuentes/plex-mono-medium.woff2) format('woff2'); font-weight: 500; font-display: swap; }
+:root { --fondo: #F3F0E8; --texto: #0B0B0C; --cobalto: #2340C8; --hondo: #1A2E9C; --gris: #55534F; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--fondo); color: var(--texto); font-family: 'Instrument Sans', Arial, sans-serif; overflow: hidden; }
+.visor { position: fixed; inset: 0; background: radial-gradient(120% 90% at 50% 40%, #f8f6f0 0%, var(--fondo) 55%, #e9e4d8 100%); }
+#lienzo { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; opacity: 0; transition: opacity .8s cubic-bezier(.2, .7, 0, 1); }
+.listo #lienzo { opacity: 1; }
+#lienzo:active { cursor: grabbing; }
+.cabeza { position: absolute; top: max(16px, env(safe-area-inset-top)); left: 20px; right: 120px; display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; pointer-events: none; }
+.marca { margin: 0; display: inline-flex; align-items: baseline; gap: .4em; font: 900 1.6rem/1 Archivo, sans-serif; font-stretch: 72%; text-transform: uppercase; letter-spacing: -.01em; color: var(--cobalto); }
+.marca span { font: 400 italic 1.05rem/1 'Instrument Serif', serif; text-transform: none; letter-spacing: 0; color: var(--hondo); }
+.estado { margin: 0; font: 500 .72rem/1.4 'IBM Plex Mono', monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--gris); }
+.mando { position: absolute; left: 50%; bottom: max(22px, env(safe-area-inset-bottom)); transform: translateX(-50%); display: flex; gap: 10px; align-items: center; }
+.mando button { font: 700 .78rem/1 'Instrument Sans', sans-serif; letter-spacing: .07em; text-transform: uppercase; color: var(--cobalto); background: rgba(243, 240, 232, .86);
+  border: 2px solid var(--cobalto); border-radius: 99px; height: 44px; cursor: pointer; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background-color .25s, color .25s; }
+.mando button:hover, .mando button:focus-visible { background: var(--cobalto); color: var(--fondo); outline: none; }
+.mando .pastilla { padding: 0 26px; min-width: 120px; }
+.mando .redondo { width: 44px; padding: 0; display: grid; place-items: center; }
+.mando svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.pista { position: absolute; left: 0; right: 0; bottom: calc(max(22px, env(safe-area-inset-bottom)) + 56px); margin: 0; text-align: center; padding: 0 20px;
+  font: 500 .68rem/1.4 'IBM Plex Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--gris); pointer-events: none; }
+@media (max-width: 600px) { .pista { display: none; } .cabeza { right: 70px; } }
+
+.limpio .cabeza, .limpio .mando, .limpio .pista { display: none; }
